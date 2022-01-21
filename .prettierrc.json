@@ -1,0 +1,10 @@
+{
+    "semi": true,
+    "tabWidth": 4,
+    "overrides": [{
+        "files": ["*.ts", "*.tsx"],
+        "options": {
+            "semi": true
+        }
+    }]
+}

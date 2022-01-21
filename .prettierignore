@@ -1,0 +1,10 @@
+# ignore everything
+/*
+/src/assets
+
+# but not
+!/.vscode
+!/.github
+!/cypress
+!/src
+!/tests
