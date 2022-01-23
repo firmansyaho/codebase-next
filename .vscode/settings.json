@@ -1,0 +1,12 @@
+{
+    "prettier.singleQuote": true,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.trimTrailingWhitespace": true,
+    "search.exclude": {
+        "src/assets/": true
+    },
+    "window.zoomLevel": -1.6,
+    "editor.formatOnSave": true
+}
