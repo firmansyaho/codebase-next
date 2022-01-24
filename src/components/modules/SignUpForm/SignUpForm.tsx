@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
-import { login } from "../../../store/Auth/Auth.action";
+import { registerUser } from "../../../store/User/User.action";
 import Form from "../../core/Form/Form";
 import { InputText } from "./SignUpForm.styles";
 
@@ -42,8 +42,7 @@ const SignUpForm = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
-            dispatch(login());
+            dispatch(registerUser(JSON.stringify(values)));
         },
     });
 

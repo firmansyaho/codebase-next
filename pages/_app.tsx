@@ -6,6 +6,7 @@ import { ThemeProvider as SCThemeProvider } from "styled-components";
 import store from "../src/store/store";
 import theme from "../src/styles/theme";
 import { GlobalStyles } from "./_app.styles";
+require("../src/mocks");
 
 function App({ Component, pageProps }: AppProps) {
     return (

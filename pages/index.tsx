@@ -7,8 +7,8 @@ import Dashboard from "./dashboard";
 import SignUp from "./signup/signup";
 
 const AppRoute = ({}: AppProps) => {
-    const { isLogin } = useSelector<RootState, RootState["Auth"]>(
-        (state) => state.Auth
+    const { accessToken } = useSelector<RootState, RootState["User"]>(
+        (state) => state.User
     );
 
     useEffect(() => {
@@ -16,9 +16,9 @@ const AppRoute = ({}: AppProps) => {
         if (jssStyles) {
             jssStyles.parentElement?.removeChild(jssStyles);
         }
-    }, []);
+    }, [accessToken]);
 
-    return <Fragment>{isLogin ? <SignUp /> : <Dashboard />}</Fragment>;
+    return <Fragment>{!accessToken ? <SignUp /> : <Dashboard />}</Fragment>;
 };
 
 export default AppRoute;

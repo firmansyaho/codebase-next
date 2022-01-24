@@ -10,10 +10,15 @@ import {
     ListItemText,
     Toolbar,
 } from "@mui/material";
+import Link from "next/link";
 import React from "react";
+import { useSelector } from "react-redux";
 import { SIDEBAR_MENU } from "../../../constants/app.constants";
+import { RootState } from "../../../store/store";
+import { IProfileData } from "../../../store/User/User.action";
 
-const drawer = () => {
+const drawer = (data: IProfileData) => {
+    const { firstName, lastName } = data;
     const renderIcon = (name: string) => {
         switch (name) {
             case "Dashboard":
@@ -26,13 +31,19 @@ const drawer = () => {
     };
     return (
         <>
-            <Toolbar>Sidebar</Toolbar>
+            <Toolbar>
+                <h2>
+                    Welcome {firstName} {lastName}
+                </h2>
+            </Toolbar>
             <List>
                 {SIDEBAR_MENU.map((item) => (
-                    <ListItem button key={item.id}>
-                        <ListItemIcon>{renderIcon(item.name)}</ListItemIcon>
-                        <ListItemText primary={item.name} />
-                    </ListItem>
+                    <Link passHref href={item.path} key={item.id}>
+                        <ListItem button>
+                            <ListItemIcon>{renderIcon(item.name)}</ListItemIcon>
+                            <ListItemText primary={item.name} />
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
             <Divider />
@@ -47,6 +58,10 @@ type Props = {
 };
 
 const SideBar = (props: Props) => {
+    const { profile } = useSelector<RootState, RootState["User"]>(
+        (state) => state.User
+    );
+
     return (
         <Box
             component="nav"
@@ -70,7 +85,7 @@ const SideBar = (props: Props) => {
                     },
                 }}
             >
-                {drawer()}
+                {drawer(profile)}
             </Drawer>
             <Drawer
                 variant="permanent"
@@ -83,7 +98,7 @@ const SideBar = (props: Props) => {
                 }}
                 open
             >
-                {drawer()}
+                {drawer(profile)}
             </Drawer>
         </Box>
     );

@@ -6,10 +6,12 @@ export const SIDEBAR_MENU = [
     {
         id: 0,
         name: "Dashboard",
+        path: "/dashboard",
     },
     {
         id: 1,
         name: "Users",
+        path: "/users",
     },
 ];
 

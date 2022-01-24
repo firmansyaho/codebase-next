@@ -41,11 +41,13 @@ const MainLayout = (props: Props) => {
                 )}
             </AppBar>
             <MainContainer>
-                <SideBar
-                    isMobile={mobile}
-                    drawerWidth={SIDEBAR_WIDTH}
-                    handleDrawerToggle={handleDrawerToggle}
-                />
+                {props.header && (
+                    <SideBar
+                        isMobile={mobile}
+                        drawerWidth={SIDEBAR_WIDTH}
+                        handleDrawerToggle={handleDrawerToggle}
+                    />
+                )}
                 <Flex>{props.children}</Flex>
             </MainContainer>
             <FooterContainer />

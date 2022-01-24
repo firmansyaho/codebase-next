@@ -1,34 +1,42 @@
-import { GET_PROFILE } from "./User.actionTypes";
+import { IProfileData } from "./User.action";
+import { UserActionTypes } from "./User.actionTypes";
 
+export interface IUserState {
+    profile: IProfileData;
+    accessToken: string;
+}
 export interface UserState {
     profile: {
         id: string;
         firstName: string;
         lastName: string;
-        location: string;
+        location?: string;
     };
 }
 
 interface Action {
     type: string;
-    payload?: UserState["profile"];
+    payload?: IUserState;
 }
 
-const initialState = {
+const initialState: IUserState = {
     profile: {
         id: "",
         firstName: "",
         lastName: "",
-        location: "",
     },
+    accessToken: "",
 };
 
-const UserReducer = (
-    state: UserState = initialState,
-    action: Action
-): UserState => {
+const UserReducer = (state = initialState, action: Action): IUserState => {
     switch (action.type) {
-        case GET_PROFILE:
+        case UserActionTypes.GET_PROFILE:
+            return { ...state, ...action.payload };
+        case UserActionTypes.REGISTER_USER:
+            return { ...state, ...action.payload };
+        case UserActionTypes.REGISTER_USER_SUCCESS:
+            return { ...state, ...action.payload };
+        case UserActionTypes.REGISTER_USER_FAILED:
             return { ...state, ...action.payload };
         default:
             return state;
