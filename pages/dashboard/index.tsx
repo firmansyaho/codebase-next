@@ -46,13 +46,14 @@ const Dashboard = () => {
                                     layout="responsive"
                                     width={"100%"}
                                     height={50}
+                                    priority={true}
                                 />
-                                <NftCardTitle>
-                                    <Grid>
+                                <Grid>
+                                    <NftCardTitle>
                                         {x.title}
                                         {x.category}
-                                    </Grid>
-                                </NftCardTitle>
+                                    </NftCardTitle>
+                                </Grid>
                             </NftCardContainer>
                         );
                     })}

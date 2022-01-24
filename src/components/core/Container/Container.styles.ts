@@ -1,5 +1,5 @@
+import styled from "@emotion/styled";
 import { Container } from "@mui/material";
-import { styled } from "@mui/material/styles";
 
 export const CenteredContainer = styled(Container)`
     display: flex;
