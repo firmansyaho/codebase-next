@@ -1,5 +1,8 @@
-import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = styled.body`
-    margin: 0px;
+export const GlobalStyles = createGlobalStyle`
+    body {
+        margin: 0;
+        padding: 0;
+    }
 `;
